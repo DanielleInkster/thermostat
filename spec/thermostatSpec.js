@@ -17,6 +17,14 @@ describe('Thermostat', function(){
       thermostat.up();
       expect(thermostat.temperature).toEqual(21);
     });
+    it ('has a maximum temperature of 32 degrees', function() {
+      var times;
+      for ( times = 0; times < 12; times ++){
+        thermostat.up();
+      }
+      thermostat.up();
+      expect(thermostat.temperature).toEqual(32);
+    });
   });
 
   describe('.down', function() {
