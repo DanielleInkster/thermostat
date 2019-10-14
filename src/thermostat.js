@@ -29,3 +29,17 @@ Thermostat.prototype.down = function() {
 Thermostat.prototype.powerSavingModeOff = function() {
   this.powerSavingMode = false;
 }
+
+Thermostat.prototype.reset = function() {
+  this.temperature = 20;
+}
+
+Thermostat.prototype.energyUsage = function() {
+  if (this.temperature < 18) {
+    return 'low';
+  } else if (this.temperature >= 25) {
+    return 'high';
+  } else {
+    return 'medium';
+  }
+}
