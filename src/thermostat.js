@@ -12,6 +12,8 @@ Thermostat.prototype.up = function() {
 }
 
 Thermostat.prototype.down = function() {
+  if (this.temperature >10) {
   this.temperature -= 1;
   return this.temperature;
+  }
 }
