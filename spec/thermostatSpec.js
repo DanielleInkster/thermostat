@@ -28,17 +28,6 @@ describe('Thermostat', function(){
     });
   });
 
-  //   it ('does not increase temperature above 32 in regular mode', function() {
-  //     thermostat.powerSavingMode === false;
-  //     var times;
-  //     for ( times = 0; times < 12; times ++){
-  //       thermostat.up();
-  //     }
-  //     thermostat.up();
-  //     expect(thermostat.temperature).toEqual(32);
-  //   });
-  // });
-
   describe('.down', function() {
     it ('decreases the temperature by 1 degree', function() {
       thermostat.down();
@@ -61,4 +50,33 @@ describe('Thermostat', function(){
       expect(thermostat.powerSavingMode).toEqual(false);
     });
   });
+
+  describe('.reset', function() {
+    it('resets the temperature to 20', function() {
+      thermostat.reset();
+      expect(thermostat.temperature).toEqual(20);
+    });
+  });
+
+  describe('.energyUsage', function() {
+    it('returns low-usage if temperature is < 18 degrees', function() {
+      thermostat.down();
+      thermostat.down();
+      thermostat.down();
+      expect(thermostat.energyUsage()).toEqual('low');
+    });
+    it('returns low-usage if 18 <= temperature < 25 degrees', function() {
+      expect(thermostat.energyUsage()).toEqual('medium');
+    });
+    it('returns low-usage if temperature is >= 25 degrees', function() {
+      thermostat.up();
+      thermostat.up();
+      thermostat.up();
+      thermostat.up();
+      thermostat.up();
+      thermostat.up();
+      expect(thermostat.energyUsage()).toEqual('high');
+    });
+  });
+
 });
