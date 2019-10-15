@@ -24,6 +24,8 @@ $(document).ready(function() {
   $('#powersavingmode-on').on('click', function(){
     thermostat.powerSavingModeOn();
     $('#power-saving-status').text('on')
+    $('#temperature').text(thermostat._temperature = 25);
+    updateEnergyUsage();
   })
 
   $('#powersavingmode-off').on('click', function(){
