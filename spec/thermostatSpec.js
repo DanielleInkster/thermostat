@@ -51,6 +51,14 @@ describe('Thermostat', function(){
     });
   });
 
+  describe('.powerSavingModeOn', function() {
+    it ('turns on powerSavingMode', function() {
+      thermostat.powerSavingModeOff();
+      thermostat.powerSavingModeOn();
+      expect(thermostat.powerSavingMode).toEqual(true);
+    });
+  });
+
   describe('.reset', function() {
     it('resets the temperature to 20', function() {
       thermostat.reset();
@@ -78,7 +86,5 @@ describe('Thermostat', function(){
       }
       expect(thermostat.energyUsage()).toEqual('high');
     });
-
   });
-
 });
