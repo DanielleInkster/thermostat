@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+    </head>
     <body>
+      <style>
+        body {
+          background-color: rgb(62, 131, 221); 
+          color: rgb(187, 52, 11); 
+      }
+    </style>
       <section>
         <center>
-        <h1 id="temperature"> Thermostat</h1>
+        <h1 id="temperature" style="font-size:50px"> Thermostat</h1>
         <h4> Is it cold in here? </h4>
-        <p>
-          <%=Thermostat.temperature%>
-        </p>
         <p>
           <button id="temperature-up"> + </button>
           <button id="temperature-down"> - </button>
           <button id="temperature-reset"> reset </button>
+          <br><br>
+            Power saving mode is <span id="power-saving-status">on</span>
           <button id="powersavingmode-on"> PSM on </button>
           <button id="powersavingmode-off"> PSM off </button>
         </p>
+        <br>
+        <div style="font-size:20px"> Energy usage is <span id="energy-usage-status" style="font-size:25px"> medium</span></div>
         </center>
       </section>
-      <script src="js/thermostat.js"></script>
+      <script src="src/thermostat.js"></script>
+      <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+      <script src="src/interface.js"></script>
     </body>
-  </head>
 </html>

@@ -8,14 +8,14 @@ describe('Thermostat', function(){
 
   describe('temperature', function(){
     it ('starts at 20 degrees', function(){
-      expect(thermostat.temperature).toEqual(20);
+      expect(thermostat._temperature).toEqual(20);
     });
   });
 
   describe('.up', function() {
     it ('increases the temperature by 1 degree', function() {
       thermostat.up();
-      expect(thermostat.temperature).toEqual(21);
+      expect(thermostat._temperature).toEqual(21);
     });
 
     it ('does not increase temperature above 25 in power saving mode', function() {
@@ -24,14 +24,14 @@ describe('Thermostat', function(){
         thermostat.up();
       }
       thermostat.up();
-      expect(thermostat.temperature).toEqual(25);
+      expect(thermostat._temperature).toEqual(25);
     });
   });
 
   describe('.down', function() {
     it ('decreases the temperature by 1 degree', function() {
       thermostat.down();
-      expect(thermostat.temperature).toEqual(19);
+      expect(thermostat._temperature).toEqual(19);
     });
 
     it ('does not let temperature go below 10 degrees', function() {
@@ -40,7 +40,7 @@ describe('Thermostat', function(){
         thermostat.down();
       }
       thermostat.down();
-      expect(thermostat.temperature).toEqual(10);
+      expect(thermostat._temperature).toEqual(10);
     });
   });
 
@@ -62,7 +62,7 @@ describe('Thermostat', function(){
   describe('.reset', function() {
     it('resets the temperature to 20', function() {
       thermostat.reset();
-      expect(thermostat.temperature).toEqual(20);
+      expect(thermostat._temperature).toEqual(20);
     });
   });
 
