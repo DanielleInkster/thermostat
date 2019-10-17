@@ -61,12 +61,12 @@ $(document).ready(function() {
     var token = '&appid=3e0b121f266b86a2c7c271d5e8d6ab99';
     var units = '&units=metric';
     $.get(url + token + units, function(data) {
-      $('#current-temperature').text(data.main.temp);
+      $('#current-temperature').text(Math.round(data.main.temp));
       })
     }
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.temperature);
+    $('#temperature').text(thermostat.temperature+" °C");
     $('#temperature').attr('class', thermostat.energyUsage());
   };
 
