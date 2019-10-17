@@ -5,9 +5,10 @@ $(document).ready(function() {
   updateEnergyUsage();
 
   $.get('http://localhost:4567/update', function(data) {
-    thermostat.temperature = Number(data)
+    thermostat._temperature = Number(data)
     console.log(data)
-    $('#temperature').text(thermostat.temperature);
+    $('#temperature').text(thermostat._temperature+" °C");
+    $('#temperature').attr('class', thermostat.energyUsage());
     updateEnergyUsage();
   });
 
@@ -48,7 +49,7 @@ $(document).ready(function() {
   })
 
   $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=3e0b121f266b86a2c7c271d5e8d6ab99&units=metric', function(data) {
-    $('#current-temperature').text(data.main.temp);
+    $('#current-temperature').text(Math.round(data.main.temp));
     })
   
     $('#current-city').change(function() {
@@ -66,7 +67,7 @@ $(document).ready(function() {
     }
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.temperature+" °C");
+    $('#temperature').text(thermostat._temperature+" °C");
     $('#temperature').attr('class', thermostat.energyUsage());
   };
 
@@ -75,7 +76,7 @@ $(document).ready(function() {
   };
 
   function sendState() {
-    var send = {temperature: thermostat.temperature};
+    var send = {temperature: thermostat._temperature};
     $.post('http://localhost:4567/retrieve', send);
   };
 });
