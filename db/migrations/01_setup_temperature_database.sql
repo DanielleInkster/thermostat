@@ -1,0 +1,1 @@
+CREATE TABLE state(id SERIAL PRIMARY KEY, temperature VARCHAR(60) );

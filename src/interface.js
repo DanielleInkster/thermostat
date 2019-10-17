@@ -2,22 +2,34 @@ $(document).ready(function() {
   var thermostat = new Thermostat();
 
   updateTemperature();
+  updateEnergyUsage();
+
+  $.get('http://localhost:4567/update', function(data) {
+    thermostat.temperature = Number(data)
+    console.log(data)
+    $('#temperature').text(thermostat.temperature);
+    updateEnergyUsage();
+  });
+
 
   $('#temperature-up').on('click', function(){
     thermostat.up();
     updateTemperature();
+    sendState();
     updateEnergyUsage();
   })
 
   $('#temperature-down').on('click', function(){
     thermostat.down();
     updateTemperature();
+    sendState();
     updateEnergyUsage();
   })
 
   $('#temperature-reset').on('click', function(){
     thermostat.reset();
     updateTemperature();
+    sendState();
     updateEnergyUsage();
   })
 
@@ -26,6 +38,7 @@ $(document).ready(function() {
     $('#power-saving-status').text('on')
     thermostat.returns();
     updateTemperature();
+    sendState();
     updateEnergyUsage();
   })
 
@@ -53,17 +66,16 @@ $(document).ready(function() {
     }
 
   function updateTemperature() {
-    $('#temperature').text(thermostat._temperature);
-    if(thermostat.energyUsage() === 'low') {
-      $('#temperature').css('color', 'green')
-    } else if(thermostat.energyUsage() === 'medium') {
-      $('#temperature').css('color', 'black')
-    } else {
-      $('#temperature').css('color', 'red')
-    }
+    $('#temperature').text(thermostat.temperature);
+    $('#temperature').attr('class', thermostat.energyUsage());
   };
 
   function updateEnergyUsage(){
     $('#energy-usage-status').text(thermostat.energyUsage());
+  };
+
+  function sendState() {
+    var send = {temperature: thermostat.temperature};
+    $.post('http://localhost:4567/retrieve', send);
   };
 });
