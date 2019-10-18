@@ -1,5 +1,44 @@
+body{
+  padding: 20px 20px 20px 20px;
+border-style: double;
+border-width: thick;
+border-radius: 20px;
+margin: 10px 20px;
+min-height: 1000px;
+max-height: 2000px;
+min-width: 1000px;
+max-width: 2000px;
+overflow: scroll;
 
+font-family: 'Arvo', serif;
+background-color: rgb(62, 131, 221); 
+color: rgb(187, 52, 11); 
+}
 
+#energy-usage{
+  font-size:20px; 
+  color:white;
+}
+
+#thermostat{
+  border-style:dotted; padding: 0px 20px 20px 20px; 
+  border-radius: 20px; 
+  min-height: 100px;
+  max-height: 400px;
+  min-width: 400px;
+  max-width: 400px;
+}
+
+#energy-usage-status{
+  font-size:30px;
+  text-decoration: underline;
+}
+
+#power-saving-status{
+  font-size:20px;
+  font-weight: bold;
+  text-decoration: underline; 
+}
 .low {
   color: green;
 }

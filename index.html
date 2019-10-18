@@ -2,17 +2,10 @@
 <html>
   <head>
       <link rel="stylesheet" href="css/energyusage.css" >
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-    </head>
-    <body>
-      <style>
-        body {
-          background-color: rgb(62, 131, 221); 
-          color: rgb(187, 52, 11); 
-      }
-    </style>
+      <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+     </head>
+     <body>
       <section>
-        <center>
             <center>
                 <section>
                     <h1>Current temperature: <span id="current-temperature"></span>°C</h1>
@@ -24,20 +17,19 @@
               <option value="calgary">Calgary</option>
             </select>
         <br><br>
+        <div id="thermostat">
         <h1 id="temperature" style="font-size:50px"> Thermostat</h1>
-        <h4> Is it cold in here? </h4>
-        <p>
-          <button id="temperature-up"> + </button>
-          <button id="temperature-down"> - </button>
-          <button id="temperature-reset"> reset </button>
+          <button id="temperature-up" style="font-size:20px"> + </button>
+          <button id="temperature-down"style="font-size:20px"> - </button>
+          <button id="temperature-reset"style="font-size:20px"> reset </button>
           <br><br>
             Power saving mode is <span id="power-saving-status">on</span>
-          <button id="powersavingmode-on"> PSM on </button>
-          <button id="powersavingmode-off"> PSM off </button>
-        </p>
-        <br>
-        <div style="font-size:20px; color:white"> Energy usage is <span id="energy-usage-status" style="font-size:25px"> medium</span></div>
-        </center>
+          <button id="powersavingmode-on"style="font-size:15px"> PSM on </button>
+          <button id="powersavingmode-off"style="font-size:15px"> PSM off </button>
+        <br><br>
+        <div id ="energy-usage"> Energy usage is <span id="energy-usage-status" > medium</span></div>
+      </div>  
+      </center>
       </section>
       <script src="src/thermostat.js"></script>
       <script
